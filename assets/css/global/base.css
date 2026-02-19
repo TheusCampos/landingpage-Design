@@ -1,0 +1,20 @@
+/* Regras base e tipografia */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Links e listas */
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Cursor custom: o cursor padrão é oculto para o efeito customizado */
+* { cursor: none; }
+
+/* Acessibilidade: preferências de usuários que reduzem movimento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

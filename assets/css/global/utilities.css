@@ -1,0 +1,48 @@
+/* Utilitários de layout e tipografia */
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 120px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.big-type {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 10rem);
+  font-weight: 800;
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.section-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.section--has-bg { position: relative; overflow: hidden; isolation: isolate; }
+.bg-words { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.bg-words span {
+  position: absolute;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-main);
+  opacity: 0.05;
+  filter: blur(2px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.bg-words span:nth-child(1) { top: 10%; left: -2%; font-size: clamp(4rem, 14vw, 14rem); }
+.bg-words span:nth-child(2) { bottom: 5%; right: -5%; font-size: clamp(3rem, 12vw, 12rem); }
+.bg-words span:nth-child(3) { top: 45%; left: 40%; font-size: clamp(2.5rem, 10vw, 10rem); opacity: 0.04; }

@@ -1,0 +1,39 @@
+/* Seção de Serviços (nova) */
+.services { }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px;
+}
+
+.service-card {
+  grid-column: span 4;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  background: rgba(204, 255, 0, 0.05);
+  border-color: rgba(204, 255, 0, 0.35);
+}
+
+.service-card__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.service-card__desc { color: var(--text-secondary); }
+
+@media (max-width: 992px) {
+  .service-card { grid-column: span 6; }
+}
+
+@media (max-width: 768px) {
+  .services__grid { display: block; }
+  .service-card { margin-bottom: 24px; }
+}
