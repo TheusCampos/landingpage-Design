@@ -1,0 +1,32 @@
+/* Variáveis de tema e tipografia (preserva design atual) */
+:root {
+  /* Cores Primárias */
+  --primary-color: #0d361d; /* Acid Lime */
+  --primary-dark: #092413;
+  --primary-light: #134e2b;
+
+  /* Cores Neutras */
+  --neutral-50: #fafafa;
+  --neutral-100: #e0e0e0; /* text-main */
+  --neutral-400: #888888; /* text-secondary */
+  --neutral-800: #27272a;
+  --neutral-900: #0a0a0a; /* bg-color */
+
+  /* Cores Semânticas */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Mapeamento Semântico para Tema Escuro */
+  --bg-color: var(--neutral-900);
+  --text-main: var(--neutral-100);
+  --text-secondary: var(--neutral-400);
+  --accent: var(--primary-color);
+
+  /* Tipografia */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+
+  /* Outros */
+  --cursor-size: 20px;
+}

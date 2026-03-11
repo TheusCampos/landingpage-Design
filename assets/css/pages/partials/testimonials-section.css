@@ -1,0 +1,23 @@
+/* Seção de Depoimentos */
+.testimonials__list {
+  display: grid;
+  gap: 32px;
+}
+
+.testimonial {
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 0 16px 24px;
+  color: var(--text-main);
+}
+
+.testimonial p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.testimonial__author {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-style: normal;
+}

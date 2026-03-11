@@ -3,31 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEX | Visual Designer</title>
+    <title>ALEX | Visual Designer - Portfólio de Alta Performance</title>
+    
+    <!-- Preconnect para Google Fonts (Performance) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://i.pinimg.com">
+    
+    <!-- Importação de Fontes Otimizada -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Import centralizado de estilos -->
     <link rel="stylesheet" href="./assets/css/index.css">
-    <meta name="description" content="Portfólio de design visceral com direção de arte, UI/UX, branding e motion.">
+    
+    <!-- Preload LCP Image (Performance Critical) -->
+    <link rel="preload" as="image" href="./assets/imagens/banner_hero.png">
+
+    <meta name="description" content="Portfólio de design visceral com direção de arte, UI/UX, branding e motion. Projetos focados em performance e acessibilidade.">
     <meta name="robots" content="index,follow">
     <meta name="author" content="Alex Design">
     <meta name="theme-color" content="#0a0a0a">
     <meta name="color-scheme" content="dark light">
-    <link rel="canonical" href="https://your-domain.com/">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://alex.design/">
+    
     <link rel="manifest" href="/assets/favicons/site.webmanifest">
     <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="/assets/favicons/icon-192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="/assets/favicons/icon-512.png" sizes="512x512">
+    
+    <!-- Open Graph -->
     <meta property="og:title" content="ALEX | Visual Designer">
-    <meta property="og:description" content="Portfólio de design visceral com direção de arte, UI/UX, branding e motion.">
+    <meta property="og:description" content="Design visceral, UI/UX e branding. Experiência digital de alta performance.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:url" content="https://alex.design/">
+    <meta property="og:image" content="./assets/imagens/banner_hero.png">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ALEX | Visual Designer">
-    <meta name="twitter:description" content="Portfólio de design visceral com direção de arte, UI/UX, branding e motion.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+    <meta name="twitter:description" content="Design visceral, UI/UX e branding.">
+    <meta name="twitter:image" content="./assets/imagens/banner_hero.png">
+
+    <!-- Schema.org para SEO Aprimorado (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alex",
+      "jobTitle": "Visual Designer",
+      "url": "https://alex.design/",
+      "image": "https://alex.design/assets/imagens/banner_hero.png",
+      "sameAs": [
+        "https://instagram.com/your-profile",
+        "https://behance.net/your-profile",
+        "https://linkedin.com/in/your-profile"
+      ],
+      "knowsAbout": ["UI Design", "UX Design", "Branding", "Motion Graphics", "Web Development"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -38,24 +77,87 @@
         <div class="container">
             <nav>
                 <div class="logo hover-trigger">ALEX.</div>
-                <div class="menu-btn hover-trigger">Menu</div>
+                <button class="menu-btn hover-trigger" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">Menu</button>
             </nav>
         </div>
     </header>
 
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="main-menu" aria-hidden="true">
+        <div class="menu-container">
+            <div class="menu-header">
+                <div class="logo">ALEX.</div>
+                <button class="menu-close hover-trigger" aria-label="Fechar menu">Fechar</button>
+            </div>
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li><a href="#section-about" class="menu-link hover-trigger">Sobre</a></li>
+                    <li><a href="#section-projects" class="menu-link hover-trigger">Projetos</a></li>
+                    <li><a href="#section-services" class="menu-link hover-trigger">Serviços</a></li>
+                    <li><a href="#contact" class="menu-link hover-trigger">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="menu-footer">
+                <div class="socials">
+                    <a href="#" class="hover-trigger" rel="noopener">Instagram</a>
+                    <a href="#" class="hover-trigger" rel="noopener">Behance</a>
+                    <a href="#" class="hover-trigger" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
     <section class="hero">
+        <!-- Elementos Decorativos Minimalistas -->
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        
         <div class="container">
             <div class="hero-content">
-                <span class="section-title">Portfolio 2024</span>
-                <h1 class="big-type">Design <br> <span style="color:transparent; -webkit-text-stroke: 1px var(--text-main);">Visceral</span></h1>
+                <h1 class="big-type">Design <br> <span class="outline-text">Visceral</span></h1>
                 <p class="hero-sub">Transformo caos em clareza através de design digital, motion graphics e identidades visuais que não pedem licença.</p>
+                
+                <div class="hero-actions">
+                    <a href="#section-projects" class="btn-minimal">Explorar Projetos</a>
+                    <a href="#contact" class="btn-text">Entrar em contato</a>
+
+                    <!-- Card Flutuante Minimalista (inspirado na ref) -->
+                    <div class="hero-floating-card glass-effect hover-trigger">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-label">Projetos Entregues</span>
+                            <span class="card-value">120+</span>
+                        </div>
+                        <div class="card-divider"></div>
+                        <div class="card-info">
+                            <span class="card-label">Anos de XP</span>
+                            <span class="card-value">15+</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="marquee-container">
-        <div class="marquee-content">
-            UI DESIGN — ART DIRECTION — BRANDING — CREATIVE CODING — UI DESIGN — ART DIRECTION — BRANDING — CREATIVE CODING —
+    <div class="marquees-wrapper">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA — DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA —
+            </div>
+            <div class="marquee-content">
+                DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA — DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA —
+            </div>
+        </div>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA — DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA —
+            </div>
+            <div class="marquee-content">
+                DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA — DESIGN DE INTERFACE — DIREÇÃO DE ARTE — BRANDING — PROGRAMAÇÃO CRIATIVA —
+            </div>
         </div>
     </div>
 
@@ -79,7 +181,7 @@
                     </ul>
                 </div>
                 <figure class="about-col--media about-media">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Textura arquitetônica monocromática">
+                    <img src="https://i.pinimg.com/1200x/45/5c/6b/455c6b574ed4c410a27585a832e14557.jpg" alt="Textura arquitetônica monocromática" width="1200" height="800" loading="lazy" decoding="async">
                 </figure>
             </div>
         </div>
@@ -90,33 +192,36 @@
         <span id="section-projects" class="section-title">Estudos de Caso</span>
         <div class="projects-grid">
             
-            <article class="project-card hover-trigger">
+            <article class="project-card project-card--featured hover-trigger">
                 <div class="project-img-wrapper">
-                    <img class="project-img" src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Neon Verse — Web Design com WebGL e 3D" loading="lazy" decoding="async">
+                    <img class="project-img" src="./assets/imagens/sistema.png" alt="Neon Verse — Sistema Web com Dashboard 3D" width="1000" height="750" loading="lazy" decoding="async">
                 </div>
-                <div class="project-info">
-                    <h3>Neon Verse</h3>
-                    <div class="project-tags">Web Design / WebGL / 3D</div>
+                <div class="project-content">
+                    <span class="project-category">Sistema</span>
+                    <h3 class="project-title">Neon Verse</h3>
+                    <div class="project-tags">React / Dashboard / WebGL</div>
                 </div>
             </article>
 
             <article class="project-card hover-trigger">
                 <div class="project-img-wrapper">
-                    <img class="project-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mono Type — Branding e tipografia" loading="lazy" decoding="async">
+                    <img class="project-img" src="./assets/imagens/site.png" alt="Mono Type — Website Institucional" width="1000" height="750" loading="lazy" decoding="async">
                 </div>
-                <div class="project-info">
-                    <h3>Mono Type</h3>
-                    <div class="project-tags">Branding / Typography</div>
+                <div class="project-content">
+                    <span class="project-category">Website</span>
+                    <h3 class="project-title">Mono Type</h3>
+                    <div class="project-tags">Front-end / Branding / GSAP</div>
                 </div>
             </article>
 
             <article class="project-card hover-trigger">
                 <div class="project-img-wrapper">
-                    <img class="project-img" src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Urban Flow — App design com pesquisa de UX" loading="lazy" decoding="async">
+                    <img class="project-img" src="https://i.pinimg.com/736x/8e/8a/82/8e8a827ced0fee3e69eccc328340a3fe.jpg" alt="Urban Flow — Mockup de Aplicativo Mobile" width="1000" height="750" loading="lazy" decoding="async">
                 </div>
-                <div class="project-info">
-                    <h3>Urban Flow</h3>
-                    <div class="project-tags">App Design / UX Research</div>
+                <div class="project-content">
+                    <span class="project-category">Mockup</span>
+                    <h3 class="project-title">Urban Flow</h3>
+                    <div class="project-tags">App Design / UX / Concept</div>
                 </div>
             </article>
 
@@ -126,20 +231,22 @@
 
 
     <!-- NOVA SEÇÃO 1: Serviços (inserir logo após a seção Sobre) -->
-    <section class="services section--has-bg" aria-labelledby="section-services">
-        <div class="bg-words"><span>Serviços</span><span>Experiência</span></div>
+    <section class="services" aria-labelledby="section-services">
         <div class="container">
             <span id="section-services" class="section-title">Serviços</span>
             <div class="services__grid">
                 <article class="service-card hover-trigger">
+                    <span class="service-card__num">01</span>
                     <h3 class="service-card__title">Direção de Arte</h3>
                     <p class="service-card__desc">Construção de narrativas visuais marcantes, identidade de marca e sistemas que comunicam propósito.</p>
                 </article>
                 <article class="service-card hover-trigger">
+                    <span class="service-card__num">02</span>
                     <h3 class="service-card__title">UI/UX Design</h3>
                     <p class="service-card__desc">Interfaces intuitivas, acessibilidade e fluxo pensado para reduzir atrito e aumentar conversão.</p>
                 </article>
                 <article class="service-card hover-trigger">
+                    <span class="service-card__num">03</span>
                     <h3 class="service-card__title">Motion & Interação</h3>
                     <p class="service-card__desc">Microinterações e motion design que dão vida ao produto sem comprometer performance.</p>
                 </article>
@@ -184,8 +291,9 @@
             </div>
         </div>
     </section>
+    </main>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
             <span class="section-title">Próximo Passo</span>
             <a href="mailto:ola@alex.design" class="footer-cta hover-trigger">
@@ -196,12 +304,14 @@
                 <a href="#" class="hover-trigger" rel="noopener">Behance</a>
                 <a href="#" class="hover-trigger" rel="noopener">LinkedIn</a>
             </div>
-            <p style="margin-top: 50px; font-size: 0.8rem; color: #444;">&copy; 2024 Alex Design. Coded with intention.</p>
+            <p class="contact__meta">&copy; 2024 Alex Design. Coded with intention.</p>
         </div>
     </footer>
 
     <!-- Scripts segmentados -->
     <script defer src="./assets/js/global/animations.js"></script>
+    <script defer src="./assets/js/global/navigation.js"></script>
+    <script defer src="./assets/js/pages/partials/hero-animations.js"></script>
     <script defer src="./assets/js/pages/partials/scroll-effects.js"></script>
     <script defer src="./assets/js/index.js"></script>
 </body>

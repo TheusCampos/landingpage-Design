@@ -1,4 +1,8 @@
 /* Regras base e tipografia */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
@@ -7,12 +11,55 @@ body {
   line-height: 1.5;
 }
 
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Evita gap inferior em imagens inline */
+}
+
 /* Links e listas */
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* Cursor custom: o cursor padrão é oculto para o efeito customizado */
+/* Cursor custom */
 * { cursor: none; }
+
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+body.hovering .cursor-outline {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(204, 255, 0, 0.1);
+  border-color: var(--accent);
+  mix-blend-mode: difference;
+}
+
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-outline { display: none; }
+  * { cursor: auto; }
+}
 
 /* Acessibilidade: preferências de usuários que reduzem movimento */
 @media (prefers-reduced-motion: reduce) {

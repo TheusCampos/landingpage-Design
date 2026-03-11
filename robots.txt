@@ -1,3 +1,10 @@
+# Permitir que todos os robôs de busca acessem o site.
 User-agent: *
 Allow: /
+
+# Bloquear o acesso a diretórios que não contribuem para o conteúdo do site.
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Localização do sitemap.
 Sitemap: https://your-domain.com/sitemap.xml

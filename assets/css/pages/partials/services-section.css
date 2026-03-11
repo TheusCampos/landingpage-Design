@@ -1,39 +1,102 @@
-/* Seção de Serviços (nova) */
-.services { }
+/* Seção de Serviços - Redesign Minimalista */
+.services {
+  /* Fundo limpo, foco na tipografia */
+}
 
 .services__grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil separando o título do conteúdo */
+  padding-top: 60px;
 }
 
 .service-card {
   grid-column: span 4;
-  padding: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
-  transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+  padding: 0; /* Remove padding interno de card tradicional */
+  border: none; /* Remove bordas */
+  background: transparent; /* Remove background */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  transition: transform 0.4s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  background: rgba(204, 255, 0, 0.05);
-  border-color: rgba(204, 255, 0, 0.35);
+  transform: translateY(-10px);
+  background: transparent;
+  border-color: transparent;
 }
 
+/* Número decorativo */
+.service-card__num {
+  font-family: var(--font-body); /* Mono ou técnica */
+  font-size: 0.875rem;
+  color: var(--accent);
+  opacity: 0.6;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Título */
 .service-card__title {
   font-family: var(--font-display);
-  font-size: 2rem;
-  margin-bottom: 12px;
+  font-size: 2.5rem; /* Aumentado para impacto */
+  line-height: 1.1;
+  margin: 0;
+  color: var(--text-main);
+  position: relative;
+  padding-bottom: 24px;
 }
 
-.service-card__desc { color: var(--text-secondary); }
+/* Linha decorativa abaixo do título */
+.service-card__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
 
+.service-card:hover .service-card__title::after {
+  width: 100%;
+  background-color: var(--accent);
+}
+
+/* Descrição */
+.service-card__desc {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+/* Responsividade */
 @media (max-width: 992px) {
-  .service-card { grid-column: span 6; }
+  .service-card {
+    grid-column: span 6;
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 768px) {
-  .services__grid { display: block; }
-  .service-card { margin-bottom: 24px; }
+  .services__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding-top: 40px;
+  }
+
+  .service-card {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .service-card__title {
+    font-size: 2rem;
+  }
 }

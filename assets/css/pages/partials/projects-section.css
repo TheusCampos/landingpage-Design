@@ -1,0 +1,142 @@
+/* Seção de Projetos - Redesign Moderno & Minimalista */
+
+/* Grid Principal */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 60px 40px; /* Gap vertical maior para respiro */
+  align-items: start;
+}
+
+/* Card Base */
+.project-card {
+  grid-column: span 6;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  cursor: pointer;
+  group: hover; /* Habilita estados baseados no pai se necessário */
+}
+
+/* Destaque para o primeiro item (Sistema) */
+.project-card--featured {
+  grid-column: span 12;
+  margin-bottom: 40px;
+}
+
+.project-card--featured .project-img-wrapper {
+  aspect-ratio: 21/9; /* Mais cinematográfico para o destaque */
+}
+
+/* Imagem e Wrapper */
+.project-img-wrapper {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4/3; /* Padrão para os demais */
+  background-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+/* Efeitos de Hover */
+.project-card:hover .project-img {
+  transform: scale(1.03);
+  filter: grayscale(0%) contrast(1);
+}
+
+/* Conteúdo do Projeto */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+/* Linha decorativa animada */
+.project-content::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.6s ease;
+}
+
+.project-card:hover .project-content::before {
+  width: 100%;
+}
+
+/* Categoria (Sistema, Site, Mockup) */
+.project-category {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+/* Título do Projeto */
+.project-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* Tags */
+.project-tags {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .project-card--featured .project-img-wrapper {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .project-card, 
+  .project-card--featured {
+    grid-column: span 12;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .project-card--featured .project-img-wrapper {
+    aspect-ratio: 4/3; /* Volta ao padrão no mobile */
+  }
+
+  .project-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-img-wrapper {
+    aspect-ratio: 1/1; /* Quadrado no mobile pequeno para ocupar mais tela vertical */
+  }
+}

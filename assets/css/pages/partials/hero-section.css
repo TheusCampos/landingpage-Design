@@ -4,33 +4,348 @@
   display: flex;
   align-items: center;
   padding-top: 100px;
+  /* Imagem aplicada via CSS para melhor organização e performance */
+  background-image: linear-gradient(to right, rgba(10, 10, 10, 0.95), transparent), url('../../../imagens/banner_hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden; /* Importante para conter o grid e glow */
 }
 
-.hero-content { display: flex; flex-direction: column; }
+/* Responsividade de Fundo para Mobile */
+@media (max-width: 768px) {
+  .hero {
+    background-position: top center;
+    background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 1)), url('../../../imagens/banner_hero.png');
+  }
+}
+
+/* Gradiente de transição suave na parte inferior da Hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--bg-color));
+  z-index: 2; /* Aumentado para ficar acima do grid */
+  pointer-events: none;
+}
+
+/* Container principal acima dos efeitos de fundo */
+.hero .container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Para separar texto e card flutuante */
+  align-items: center;
+}
+
+.hero-content { 
+  display: flex; 
+  flex-direction: column; 
+  width: 100%; /* Ocupa largura total para permitir alinhamento do card */
+  max-width: none; /* Remove restrição anterior */
+}
+
+/* Grid Minimalista de Fundo */
+.hero-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* Glow Minimalista */
+.hero-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.15;
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+  animation: pulse-glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(1); opacity: 0.15; }
+  100% { transform: scale(1.1); opacity: 0.1; }
+}
+
+/* Badge Minimalista */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success, #10b981); /* Fallback se var não existir */
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Tipografia Outline */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-main);
+  position: relative;
+}
 
 .hero-sub {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Levemente reduzido para minimalismo */
   color: var(--text-secondary);
-  margin-top: 20px;
-  max-width: 500px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  max-width: 480px;
+  line-height: 1.6;
+  font-weight: 300;
 }
 
-/* Marquee (faixa inclinada) */
+/* Ações / Botões */
+.hero-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap; /* Permite quebrar linha em telas médias */
+  width: 100%; /* Garante largura total para empurrar card */
+}
+
+.btn-minimal {
+  padding: 12px 32px;
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-minimal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-text {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.btn-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.btn-text:hover::after {
+  width: 100%;
+}
+
+/* Card Flutuante Glassmorphism */
+.hero-floating-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  max-width: fit-content;
+  margin-left: auto; /* Empurra para direita */
+}
+
+.card-divider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Removido animação de float para alinhamento estático */
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  border: none;
+  filter: grayscale(100%);
+  padding: 6px; /* Ajuste para SVG */
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+/* Efeito Glass Genérico */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Marquees (mantendo funcionalidade original) */
+.marquees-wrapper {
+  position: relative;
+  height: 150px; 
+  margin: 80px 0;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .marquee-container {
+  position: absolute;
+  width: 150%;
   overflow: hidden;
   white-space: nowrap;
-  padding: 20px 0;
-  background: var(--accent);
-  color: var(--bg-color);
-  transform: rotate(-2deg) scale(1.1);
-  margin: 50px 0;
+  padding: 12px 0;
+  background-color: var(--accent);
+  color: #000000;
+  left: -25%;
+  display: flex;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
+
+.marquee-container:nth-child(1) {
+  transform: rotate(-3deg);
+  z-index: 1;
+  background-color: var(--accent); 
+}
+
+.marquee-container:nth-child(2) {
+  transform: rotate(3deg); 
+  z-index: 2;
+  background-color: #ffffff; 
+  color: #000000;
+}
+
 .marquee-content {
   display: inline-block;
-  animation: marquee 20s linear infinite;
+  animation: marquee 40s linear infinite; 
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
 }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.marquee-container:nth-child(2) .marquee-content {
+  animation-direction: reverse;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 992px) {
+  .hero-floating-card {
+    display: none; /* Esconde o card flutuante em telas menores para manter o clean */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-sub { font-size: 1.125rem; max-width: 100%; }
+  .marquee-content { font-size: 1.25rem; }
+  
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-glow {
+    width: 300px;
+    height: 300px;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-content { font-size: 1rem; }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-minimal, .btn-text {
+    width: 100%;
+    text-align: center;
+  }
+}

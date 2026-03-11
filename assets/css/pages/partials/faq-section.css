@@ -1,0 +1,27 @@
+/* Seção de FAQ */
+.faq__list {
+  display: grid;
+  gap: 16px;
+}
+
+.faq__item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.faq__item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.faq__item[open] {
+  border-color: rgba(204, 255, 0, 0.35);
+  background: rgba(204, 255, 0, 0.05);
+}
+
+.faq__item p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+}
