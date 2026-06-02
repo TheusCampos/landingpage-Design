@@ -1,5 +1,7 @@
 # ALEX | Visual Designer - Portfólio Profissional
 
+<img src="./assets/img/landingpage.png" alt="Alex | Visual Designer" width="100%" height="auto">
+
 Bem-vindo ao repositório do portfólio de **Alex | Visual Designer**. Este projeto foi desenvolvido com foco absoluto em **performance**, **acessibilidade** e **SEO**, utilizando práticas modernas de desenvolvimento web para entregar uma experiência fluida e impactante.
 
 ## 🚀 Sobre o Projeto
@@ -23,44 +25,6 @@ O projeto segue uma arquitetura limpa e sem dependências pesadas:
 *   **JavaScript (ES6+)**: Modular e focado em interações específicas (sem jQuery ou frameworks pesados desnecessários).
 *   **Metodologia BEM**: Organização de classes CSS para manutenibilidade.
 
-## 📂 Estrutura de Pastas
-
-A estrutura do projeto segue um padrão rigoroso para garantir escalabilidade:
-
-```text
-projeto/
-├── assets/
-│   ├── css/
-│   │   ├── global/       # Estilos base, reset, variáveis e utilitários
-│   │   ├── pages/        # Estilos específicos de páginas e parciais
-│   │   └── index.css     # Ponto de entrada do CSS
-│   ├── favicons/         # Ícones e manifesto do site
-│   ├── imagens/          # Ativos visuais otimizados (WebP, SVG)
-│   └── js/
-│       ├── global/       # Scripts globais (animações, navegação)
-│       ├── pages/        # Scripts específicos de páginas
-│       └── index.js      # Ponto de entrada do JS
-├── index.html            # Página principal
-├── README.md             # Documentação do projeto
-├── robots.txt            # Diretrizes para crawlers
-└── sitemap.xml           # Mapa do site para indexação
-```
-
-## ⚡ Como Rodar Localmente
-
-Para visualizar o projeto em sua máquina:
-
-1.  **Clone o repositório**:
-    ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    ```
-2.  **Acesse a pasta**:
-    ```bash
-    cd seu-repositorio
-    ```
-3.  **Abra o `index.html`**:
-    *   Você pode abrir diretamente no navegador.
-    *   Ou usar uma extensão como "Live Server" no VS Code para simular um servidor local (recomendado).
 
 ## 📦 Deploy
 
@@ -69,15 +33,6 @@ O projeto está pronto para ser hospedado em plataformas estáticas como **GitHu
 1.  Suba o código para o GitHub.
 2.  Conecte o repositório na sua plataforma de preferência.
 3.  Configure o diretório de publicação (raiz).
-4.  Atualize as URLs no `sitemap.xml` e `robots.txt` para o domínio final.
-
-## 🎨 Design System
-
-O projeto utiliza um sistema de variáveis CSS para consistência visual. As cores principais são:
-
-*   **Background**: `#0a0a0a` (Dark)
-*   **Texto Principal**: `#e0e0e0`
-*   **Accent (Destaque)**: `#0d361d` (Acid Lime)
 
 ## 🤝 Contribuindo
 
